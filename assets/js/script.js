@@ -1,3 +1,27 @@
+// Wait for the DOM to finish loading before running the game.
+//Get the button elements and add event listeners to them.
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let buttons = document.getElementsByTagName("button");
+
+// Return array of buttons 5 HTML buttons and 4 CSS buttons. 1 Submit button.
+
+// Listens for (this) submit click event and IF clicked displays alert message or
+// ELSE Display you clicked Game Type.
+
+    for (let button of buttons){
+        button.addEventListener("click", function (){
+            if (this.getAttribute("data-type") === "submit"){
+                alert("You clicked Submit");
+            } else{
+                let gameType = this.getAttribute("data-type");
+                alert(`You clicked ${gameType}`);
+            }
+        });
+    }
+});
+
 function runGame(){
 
 }
