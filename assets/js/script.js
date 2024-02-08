@@ -21,6 +21,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Allows user to use Enter key instead of submit button to answer.
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter"){
+            checkAnswer();
+        }
+    })
+
     runGame("addition");
 });
 
@@ -30,6 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 
 function runGame(gameType){
+
+    //Clears the answer box
+    document.getElementById("answer-box").value = "";
+
+    // Sets the focus to the answer box so you dont need to click into it
+    document.getElementById("answer-box").focus();
+
+
 
     // Create two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
