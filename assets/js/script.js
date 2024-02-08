@@ -44,6 +44,10 @@ function runGame(gameType){
     } else if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
 
+    } else if (gameType === "subtract") {
+        displaySubtractQuestion(num1, num2);
+
+
     // Else statement to alert, developer of issue and "throw" show the gameType it occurred on.
     } else {
         alert(`Unknown game type: ${gameType}`);
@@ -95,6 +99,9 @@ function calculateCorrectAnswer(){
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
 
+    } else if (operator === "-") {
+        return [operand1 - operand2, "subtract"];
+
     }else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -135,7 +142,14 @@ function displayAdditionQuestion(operand1, operand2){
 
 }
 
-function displaySubtractQuestion(){
+function displaySubtractQuestion(operand1, operand2){
+
+    /* Checks to see if operand1 is greater that operand 2 if it is operand2 is used first */
+
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+    document.getElementById('operator').textContent = "-";
+    
 
 }
 
